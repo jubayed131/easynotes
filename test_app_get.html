@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $.getJSON("http://localhost:8080/api/notes", function(result){
+
+      var jsonStr = JSON.stringify(result);
+       $("div").append(jsonStr);
+
+      // $.each(result, function(i, field){
+      //   $("div").append(field + " ");
+      // });
+    });
+  });
+});
+</script>
+</head>
+<body>
+
+<button>Get JSON data</button>
+
+<div></div>
+</body>
+</html>

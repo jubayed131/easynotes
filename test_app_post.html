@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+
+
+$(document).ready(function(){
+  console.log('loaded');
+  $.ajax({
+
+
+    url:'http://localhost:8080/api/notes',
+    method:'POST',
+    headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+  data: JSON.stringify({
+  "title":"Seventh",
+  "content":"Creating test subject to check POST method API"
+
+}),
+    success:function(data){
+      console.log(data);
+
+    }
+  });
+});
+</script>
+</head>
+<body>
+  <div id="response">
+      <pre></pre>
+  </div>
+
+  <form id="my-form">
+      <input type="text" id="title" name="title" placeholder="Title" />
+      <input type="text" id="content" name="content" placeholder="Content" />
+
+      <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
